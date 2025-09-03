@@ -87,7 +87,7 @@ opt.zero_grad()
 
 ## Documentation
 
-Full documentation is available at [https://RDM3DC.github.io/adaptive-dynamics-toolkit](https://RDM3DC.github.io/adaptive-dynamics-toolkit)
+Full documentation 
 
 - [Getting Started Guide](https://RDM3DC.github.io/adaptive-dynamics-toolkit/getting-started)
 - [API Reference](https://RDM3DC.github.io/adaptive-dynamics-toolkit/api)
