@@ -2,8 +2,8 @@
 PyTorch implementation of the ARP optimizer.
 """
 
-from collections.abc import Iterable
-from typing import Callable, Optional
+from collections.abc import Iterable, Callable
+from typing import Any
 
 import torch
 from torch.optim.optimizer import Optimizer
@@ -53,7 +53,7 @@ class ARP(Optimizer):
         self.arp_system = ARPSystem(alpha=alpha, mu=mu)
     
     @torch.no_grad()
-    def step(self, closure: Optional[Callable[[], torch.Tensor]] = None) -> Optional[torch.Tensor]:
+    def step(self, closure: Callable[[], torch.Tensor] | None = None) -> torch.Tensor | None:
         """
         Perform a single optimization step.
         
@@ -141,7 +141,7 @@ class ARP(Optimizer):
 try:
     import tensorflow as tf
     
-    class TensorFlowARP(tf.keras.optimizers.Optimizer):
+    class TensorFlowARP(tf.keras.optimizers.Optimizer):  # type: ignore[attr-defined]
         """
         TensorFlow implementation of the ARP optimizer.
         
@@ -163,8 +163,8 @@ try:
             mu: float = 0.001,
             weight_decay: float = 0.0,
             name: str = "ARP",
-            **kwargs
-        ):
+            **kwargs: Any,
+        ) -> None:
             """Initialize the optimizer."""
             super().__init__(name=name, **kwargs)
             self._set_hyper("learning_rate", learning_rate)
@@ -177,75 +177,66 @@ try:
             for var in var_list:
                 self.add_slot(var, "G")  # Conductance state
         
-        def _resource_apply_dense(self, grad, var, apply_state=None) -> tf.Tensor:
+        def _resource_apply_dense(self, grad: tf.Tensor, var: tf.Tensor, apply_state: Any | None = None) -> tf.Tensor:
             """Apply gradients to variables."""
             var_dtype = var.dtype.base_dtype
             lr = self._get_hyper("learning_rate", var_dtype)
             alpha = self._get_hyper("alpha", var_dtype)
             mu = self._get_hyper("mu", var_dtype)
             weight_decay = self._get_hyper("weight_decay", var_dtype)
-            
+
             G = self.get_slot(var, "G")
-            
-            # Apply weight decay if specified
+
             if weight_decay > 0:
                 grad = grad + weight_decay * var
-                
-            # Update conductance: dG/dt = α|I| - μG
+
             G_new = G + alpha * tf.abs(grad) - mu * G
             self._resource_apply_assign(G, G_new)
-            
-            # Apply update with conductance-modulated learning rate
+
             var_update = var - lr * grad / (1.0 + G_new)
             self._resource_apply_assign(var, var_update)
-            
+
             return var_update
         
-        def _resource_apply_sparse(self, grad, var, indices, apply_state=None):
+        def _resource_apply_sparse(self, grad: tf.Tensor, var: tf.Tensor, indices: tf.Tensor, apply_state: Any | None = None) -> tf.Tensor:
             """Apply sparse gradients to variables."""
-            # This is a simplified sparse implementation
-            # For production, this would need more optimization
             var_dtype = var.dtype.base_dtype
             lr = self._get_hyper("learning_rate", var_dtype)
             alpha = self._get_hyper("alpha", var_dtype)
             mu = self._get_hyper("mu", var_dtype)
-            
+
             G = self.get_slot(var, "G")
-            
-            # Update conductance for sparse indices
+
             sparse_grad_abs = tf.abs(tf.IndexedSlices(grad, indices, var.shape))
-            
-            # Full update for decay term (applies to all elements)
             G_update = G * (1.0 - mu)
-            
-            # Sparse update for growth term (applies only to indices with gradients)
             G_update = tf.tensor_scatter_nd_add(
-                G_update, 
-                tf.expand_dims(indices, axis=1), 
-                alpha * sparse_grad_abs
+                G_update,
+                tf.expand_dims(indices, axis=1),
+                alpha * sparse_grad_abs,
             )
-            
+
             self._resource_apply_assign(G, G_update)
-            
-            # Apply update with conductance-modulated learning rate
+
             var_update = tf.tensor_scatter_nd_sub(
-                var, 
-                tf.expand_dims(indices, axis=1), 
-                lr * grad / (1.0 + tf.gather(G_update, indices))
+                var,
+                tf.expand_dims(indices, axis=1),
+                lr * grad / (1.0 + tf.gather(G_update, indices)),
             )
             self._resource_apply_assign(var, var_update)
-            
+
             return var_update
         
-        def get_config(self) -> dict:
+        def get_config(self) -> dict[str, Any]:
             """Return the optimizer configuration."""
-            config = super().get_config()
-            config.update({
-                "learning_rate": self._serialize_hyperparameter("learning_rate"),
-                "alpha": self._serialize_hyperparameter("alpha"),
-                "mu": self._serialize_hyperparameter("mu"),
-                "weight_decay": self._serialize_hyperparameter("weight_decay")
-            })
+            config = super(TensorFlowARP, self).get_config()  # noqa: UP008
+            config.update(
+                {
+                    "learning_rate": self._serialize_hyperparameter("learning_rate"),
+                    "alpha": self._serialize_hyperparameter("alpha"),
+                    "mu": self._serialize_hyperparameter("mu"),
+                    "weight_decay": self._serialize_hyperparameter("weight_decay"),
+                }
+            )
             return config
             
 except ImportError:
