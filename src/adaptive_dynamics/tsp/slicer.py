@@ -45,7 +45,7 @@ class Slicer:
             config: Slicer configuration, or None for defaults
         """
         self.config = config or SliceConfig()
-        self.mesh = None
+        self.mesh: dict | None = None
         self.layers: list[dict] = []
     
     def load_mesh(self, filepath: str) -> bool:
@@ -166,7 +166,7 @@ class Slicer:
             contours = layer["contours"]
             
             # Extract all points that need to be visited
-            all_points = []
+            all_points: list = []
             for contour in contours:
                 # Take a subset of points from each contour for path planning
                 # (in a real implementation, we'd use more sophisticated sampling)
@@ -174,15 +174,15 @@ class Slicer:
                 sampled_points = contour[::step]
                 all_points.extend(sampled_points)
             
-            all_points = np.array(all_points)
+            all_points_array = np.array(all_points)
             
             # Optimize the path through these points
             if method == OptimizationMethod.NEAREST_NEIGHBOR:
-                path = self._nearest_neighbor_tsp(all_points)
+                path = self._nearest_neighbor_tsp(all_points_array)
             elif method == OptimizationMethod.TWO_OPT:
-                path = self._two_opt_tsp(all_points)
+                path = self._two_opt_tsp(all_points_array)
             else:  # Fallback to nearest neighbor
-                path = self._nearest_neighbor_tsp(all_points)
+                path = self._nearest_neighbor_tsp(all_points_array)
             
             # Store the optimized path
             layer["paths"] = path
@@ -220,6 +220,9 @@ class Slicer:
                 if dist < nearest_dist:
                     nearest_dist = dist
                     nearest_idx = idx
+            
+            if nearest_idx is None:
+                break  # No more unvisited points
             
             path.append(nearest_idx)
             unvisited.remove(nearest_idx)

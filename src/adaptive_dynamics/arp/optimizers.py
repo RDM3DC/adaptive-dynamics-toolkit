@@ -53,7 +53,7 @@ class ARP(Optimizer):
         self.arp_system = ARPSystem(alpha=alpha, mu=mu)
     
     @torch.no_grad()
-    def step(self, closure: Callable[[], torch.Tensor] | None = None) -> torch.Tensor | None:
+    def step(self, closure: Callable[[], torch.Tensor] | None = None) -> torch.Tensor | None:  # type: ignore[override]
         """
         Perform a single optimization step.
         
