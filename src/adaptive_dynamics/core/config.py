@@ -59,7 +59,7 @@ class Config:
             else:
                 target[key] = value
     
-    def get(self, key_path: str, default: Any | None = None) -> Any:
+    def get(self, key_path: str, default: Any | None = None) -> Any:  # noqa: ANN401
         """
         Get a configuration value using dot notation.
         
@@ -80,7 +80,7 @@ class Config:
         except (KeyError, TypeError):
             return default
     
-    def set(self, key_path: str, value: Any) -> None:
+    def set(self, key_path: str, value: Any) -> None:  # noqa: ANN401
         """
         Set a configuration value using dot notation.
         

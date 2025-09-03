@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
-from typing import Any, Dict
+from typing import Any
 
 import torch
 from torch.optim.optimizer import Optimizer
@@ -53,7 +53,7 @@ class ARP(Optimizer):
         self.arp_system = ARPSystem(alpha=alpha, mu=mu)
     
     @torch.no_grad()
-    def step(self, closure: Callable[[], torch.Tensor] | None = None) -> torch.Tensor | None:
+    def step(self, closure: Callable[[], torch.Tensor] | None = None) -> torch.Tensor | None:  # type: ignore[override]
         """
         Perform a single optimization step.
         
@@ -141,7 +141,7 @@ class ARP(Optimizer):
 try:
     import tensorflow as tf  # type: ignore
     
-    class TensorFlowARP(tf.keras.optimizers.Optimizer):  # type: ignore[attr-defined]
+    class TensorFlowARP(tf.keras.optimizers.Optimizer):
         """
         TensorFlow implementation of the ARP optimizer.
         
@@ -180,7 +180,7 @@ try:
             self,
             grad: tf.Tensor,
             var: tf.Tensor,
-            apply_state: Dict[str, Any] | None = None,
+            apply_state: dict[str, Any] | None = None,
         ) -> tf.Tensor:
             """Apply gradients to variables."""
             var_dtype = var.dtype.base_dtype
@@ -207,7 +207,7 @@ try:
             grad: tf.Tensor,
             var: tf.Tensor,
             indices: tf.Tensor,
-            apply_state: Dict[str, Any] | None = None,
+            apply_state: dict[str, Any] | None = None,
         ) -> tf.Tensor:
             """Apply sparse gradients to variables."""
             var_dtype = var.dtype.base_dtype

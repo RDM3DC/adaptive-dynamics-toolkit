@@ -2,6 +2,7 @@
 
 import inspect
 import logging
+from collections.abc import Callable
 from typing import Any, Generic, TypeVar
 
 T = TypeVar('T')
@@ -17,7 +18,7 @@ class Registry(Generic[T]):
     It's useful for plugins, factory patterns, and dynamic component loading.
     """
     
-    def __init__(self, base_type: type[T]):
+    def __init__(self, base_type: type[T]) -> None:
         """
         Initialize a registry for a specific base type.
         
@@ -52,7 +53,7 @@ class Registry(Generic[T]):
         logger.debug(f"Registered {cls.__name__} as '{name}'")
         return cls
     
-    def decorator(self, name: str | None = None):
+    def decorator(self, name: str | None = None) -> Callable[[type[T]], type[T]]:
         """
         Create a decorator for registering a class.
         
@@ -87,7 +88,7 @@ class Registry(Generic[T]):
         
         return self._registry[name]
     
-    def create(self, name: str, *args: Any, **kwargs: Any) -> T:
+    def create(self, name: str, *args: Any, **kwargs: Any) -> T:  # noqa: ANN401
         """
         Create an instance of a registered component.
         

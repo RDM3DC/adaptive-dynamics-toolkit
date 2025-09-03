@@ -37,7 +37,7 @@ def is_close(a: float, b: float, rtol: float | None = None,
     if atol is None:
         atol = epsilon()
     
-    return np.isclose(a, b, rtol=rtol, atol=atol)
+    return bool(np.isclose(a, b, rtol=rtol, atol=atol))
 
 
 def solve_fixed_point(
