@@ -2,6 +2,7 @@
 
 import inspect
 import logging
+from collections.abc import Callable
 from typing import Any, Generic, TypeVar
 
 T = TypeVar('T')
@@ -52,7 +53,7 @@ class Registry(Generic[T]):
         logger.debug(f"Registered {cls.__name__} as '{name}'")
         return cls
     
-    def decorator(self, name: str | None = None):
+    def decorator(self, name: str | None = None) -> Callable[[type[T]], type[T]]:
         """
         Create a decorator for registering a class.
         

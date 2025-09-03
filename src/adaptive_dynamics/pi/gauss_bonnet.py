@@ -16,7 +16,8 @@ def compute_geodesic_curvature(
     
     Args:
         curve_points (np.ndarray): Array of shape (n, 2) containing (x, y) coordinates.
-        metric_tensor (Callable[[float, float], np.ndarray]): Function that returns the 2x2 metric tensor at (x, y).
+        metric_tensor (Callable[[float, float], np.ndarray]): Function that returns the 2x2 
+            metric tensor at (x, y).
 
     Returns:
         np.ndarray: Array of geodesic curvatures at each point except endpoints.
@@ -63,8 +64,10 @@ def gauss_bonnet_integral(
     
     Args:
         curve (np.ndarray): Closed curve as array of (x, y) points, shape (n, 2).
-        gaussian_curvature (Callable[[float, float], float]): Function returning Gaussian curvature at (x, y).
-        metric_tensor (Callable[[float, float], np.ndarray] | None): Function returning the 2x2 metric tensor at (x, y) (if None, Euclidean metric is used).
+        gaussian_curvature (Callable[[float, float], float]): Function returning Gaussian 
+            curvature at (x, y).
+        metric_tensor (Callable[[float, float], np.ndarray] | None): Function returning the 
+            2x2 metric tensor at (x, y) (if None, Euclidean metric is used).
 
     Returns:
         float: Total angle deficit (related to πₐ).
@@ -116,7 +119,8 @@ def adaptive_pi_from_curvature(
     Args:
         x (float): X coordinate of center point.
         y (float): Y coordinate of center point.
-        gaussian_curvature (Callable[[float, float], float]): Function returning Gaussian curvature at (x, y).
+        gaussian_curvature (Callable[[float, float], float]): Function returning Gaussian 
+            curvature at (x, y).
         radius (float): Radius of the circle to consider.
 
     Returns:
@@ -144,7 +148,8 @@ def angle_sum_triangle(
         p1 (tuple[float, float]): First triangle vertex as (x, y).
         p2 (tuple[float, float]): Second triangle vertex as (x, y).
         p3 (tuple[float, float]): Third triangle vertex as (x, y).
-        gaussian_curvature (Callable[[float, float], float]): Function returning Gaussian curvature at (x, y).
+        gaussian_curvature (Callable[[float, float], float]): Function returning Gaussian 
+            curvature at (x, y).
 
     Returns:
         float: Sum of angles in the triangle (in radians).
