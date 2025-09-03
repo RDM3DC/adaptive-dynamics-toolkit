@@ -29,7 +29,7 @@ class ARPSystem:
         mu: float = 0.001,
         dt: float = 1.0,
         g_init: float | None = None
-    ):
+    ) -> None:
         """
         Initialize an ARP system.
         

@@ -1,9 +1,9 @@
-"""
-PyTorch implementation of the ARP optimizer.
-"""
+"""PyTorch (and optional TensorFlow) implementations of the ARP optimizer."""
 
-from collections.abc import Iterable, Callable
-from typing import Any
+from __future__ import annotations
+
+from collections.abc import Callable, Iterable
+from typing import Any, Dict
 
 import torch
 from torch.optim.optimizer import Optimizer
@@ -139,7 +139,7 @@ class ARP(Optimizer):
 
 
 try:
-    import tensorflow as tf
+    import tensorflow as tf  # type: ignore
     
     class TensorFlowARP(tf.keras.optimizers.Optimizer):  # type: ignore[attr-defined]
         """
@@ -163,10 +163,9 @@ try:
             mu: float = 0.001,
             weight_decay: float = 0.0,
             name: str = "ARP",
-            **kwargs: Any,
         ) -> None:
             """Initialize the optimizer."""
-            super().__init__(name=name, **kwargs)
+            super().__init__(name=name)
             self._set_hyper("learning_rate", learning_rate)
             self._set_hyper("alpha", alpha)
             self._set_hyper("mu", mu)
@@ -177,7 +176,12 @@ try:
             for var in var_list:
                 self.add_slot(var, "G")  # Conductance state
         
-        def _resource_apply_dense(self, grad: tf.Tensor, var: tf.Tensor, apply_state: Any | None = None) -> tf.Tensor:
+        def _resource_apply_dense(
+            self,
+            grad: tf.Tensor,
+            var: tf.Tensor,
+            apply_state: Dict[str, Any] | None = None,
+        ) -> tf.Tensor:
             """Apply gradients to variables."""
             var_dtype = var.dtype.base_dtype
             lr = self._get_hyper("learning_rate", var_dtype)
@@ -198,7 +202,13 @@ try:
 
             return var_update
         
-        def _resource_apply_sparse(self, grad: tf.Tensor, var: tf.Tensor, indices: tf.Tensor, apply_state: Any | None = None) -> tf.Tensor:
+        def _resource_apply_sparse(
+            self,
+            grad: tf.Tensor,
+            var: tf.Tensor,
+            indices: tf.Tensor,
+            apply_state: Dict[str, Any] | None = None,
+        ) -> tf.Tensor:
             """Apply sparse gradients to variables."""
             var_dtype = var.dtype.base_dtype
             lr = self._get_hyper("learning_rate", var_dtype)
@@ -228,7 +238,7 @@ try:
         
         def get_config(self) -> dict[str, Any]:
             """Return the optimizer configuration."""
-            config = super(TensorFlowARP, self).get_config()  # noqa: UP008
+            config = super().get_config()
             config.update(
                 {
                     "learning_rate": self._serialize_hyperparameter("learning_rate"),
