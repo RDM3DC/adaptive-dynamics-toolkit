@@ -141,7 +141,7 @@ class ARP(Optimizer):
 try:
     import tensorflow as tf  # type: ignore
     
-    class TensorFlowARP(tf.keras.optimizers.Optimizer):  # type: ignore[attr-defined]
+    class TensorFlowARP(tf.keras.optimizers.Optimizer):
         """
         TensorFlow implementation of the ARP optimizer.
         

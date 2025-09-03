@@ -88,7 +88,7 @@ class Registry(Generic[T]):
         
         return self._registry[name]
     
-    def create(self, name: str, *args: Any, **kwargs: Any) -> T:
+    def create(self, name: str, *args: Any, **kwargs: Any) -> T:  # noqa: ANN401
         """
         Create an instance of a registered component.
         

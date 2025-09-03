@@ -46,7 +46,7 @@ class Slicer:
         """
         self.config = config or SliceConfig()
         self.mesh = None
-        self.layers = []
+        self.layers: list[dict] = []
     
     def load_mesh(self, filepath: str) -> bool:
         """
