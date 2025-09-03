@@ -386,15 +386,7 @@ class Slicer:
         
         # Estimate material usage (very simplified)
         # Assuming 1.75mm filament and extrusion multiplier from above
-            return {
-                "num_layers": num_layers,
-                "total_path_length_mm": total_path_length,
-                "total_path_segments": total_path_segments,
-                "estimated_print_time_s": estimated_print_time_s,
-                "estimated_filament_volume_mm3": (
-                    total_path_length * 0.033 * (np.pi * (1.75 / 2) ** 2)
-                ),
-            }
+        filament_volume_mm3 = total_path_length * 0.033 * (np.pi * (1.75 / 2) ** 2)
         
         # Package statistics
         stats = {

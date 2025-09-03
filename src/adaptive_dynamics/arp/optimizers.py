@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
-from typing import Any, Dict
+from typing import Any
 
 import torch
 from torch.optim.optimizer import Optimizer
@@ -180,7 +180,7 @@ try:
             self,
             grad: tf.Tensor,
             var: tf.Tensor,
-            apply_state: Dict[str, Any] | None = None,
+            apply_state: dict[str, Any] | None = None,
         ) -> tf.Tensor:
             """Apply gradients to variables."""
             var_dtype = var.dtype.base_dtype
@@ -207,7 +207,7 @@ try:
             grad: tf.Tensor,
             var: tf.Tensor,
             indices: tf.Tensor,
-            apply_state: Dict[str, Any] | None = None,
+            apply_state: dict[str, Any] | None = None,
         ) -> tf.Tensor:
             """Apply sparse gradients to variables."""
             var_dtype = var.dtype.base_dtype
