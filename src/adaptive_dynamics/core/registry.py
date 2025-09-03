@@ -17,7 +17,7 @@ class Registry(Generic[T]):
     It's useful for plugins, factory patterns, and dynamic component loading.
     """
     
-    def __init__(self, base_type: type[T]):
+    def __init__(self, base_type: type[T]) -> None:
         """
         Initialize a registry for a specific base type.
         

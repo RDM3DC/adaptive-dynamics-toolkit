@@ -16,7 +16,7 @@ except ImportError:
 class TestARPOptimizer:
     """Test suite for ARP optimizer."""
     
-    def test_initialization(self):
+    def test_initialization(self) -> None:
         """Test that the optimizer initializes correctly."""
         model = nn.Linear(10, 1)
         optimizer = ARP(model.parameters())
@@ -31,7 +31,7 @@ class TestARPOptimizer:
         assert optimizer.param_groups[0]['mu'] == 0.001
         assert optimizer.param_groups[0]['weight_decay'] == 0.0
     
-    def test_conductance_state_initialization(self):
+    def test_conductance_state_initialization(self) -> None:
         """Test that conductance state is initialized correctly."""
         model = nn.Linear(10, 1)
         optimizer = ARP(model.parameters())
@@ -56,7 +56,7 @@ class TestARPOptimizer:
             assert 'G' in optimizer.state[param]
             assert optimizer.state[param]['G'].shape == param.shape
     
-    def test_conductance_update(self):
+    def test_conductance_update(self) -> None:
         """Test that conductance is updated correctly during optimization."""
         model = nn.Linear(2, 1)
         
@@ -98,7 +98,7 @@ class TestARPOptimizer:
         # Conductance should be higher now due to accumulated adaptation
         assert torch.all(optimizer.state[model.weight]['G'] > first_weight_G)
     
-    def test_reset_conductance(self):
+    def test_reset_conductance(self) -> None:
         """Test that conductance can be reset."""
         model = nn.Linear(2, 1)
         optimizer = ARP(model.parameters())
@@ -125,7 +125,7 @@ class TestARPOptimizer:
         for param in model.parameters():
             assert torch.all(optimizer.state[param]['G'] == 0)
             
-    def test_weight_decay(self):
+    def test_weight_decay(self) -> None:
         """Test that weight decay is applied correctly."""
         # Create a model with non-zero weights
         model = nn.Linear(1, 1)

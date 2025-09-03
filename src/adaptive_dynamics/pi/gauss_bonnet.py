@@ -100,9 +100,8 @@ def gauss_bonnet_integral(
     
     # Apply Gauss-Bonnet: ∮ kg ds + ∫∫ K dA = 2π
     # Therefore, the angle deficit is:
-    angle_deficit = 2 * np.pi - (kg_total + K_avg * area)
+    return 2 * np.pi - (kg_total + K_avg * area)
     
-    return angle_deficit
 
 
 def adaptive_pi_from_curvature(
@@ -151,7 +150,7 @@ def angle_sum_triangle(
         float: Sum of angles in the triangle (in radians).
     """
     # Create a triangular curve
-    curve = np.array([p1, p2, p3, p1])
+    np.array([p1, p2, p3, p1])
     
     # Compute the area of the triangle (shoelace formula)
     x = np.array([p1[0], p2[0], p3[0]])

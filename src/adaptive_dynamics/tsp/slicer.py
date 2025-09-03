@@ -37,7 +37,7 @@ class Slicer:
     This class takes a 3D model and produces optimized toolpaths for 3D printing.
     """
     
-    def __init__(self, config: SliceConfig | None = None):
+    def __init__(self, config: SliceConfig | None = None) -> None:
         """
         Initialize a slicer with configuration.
         
@@ -389,7 +389,7 @@ class Slicer:
         filament_volume_mm3 = total_path_length * 0.033 * (np.pi * (1.75 / 2) ** 2)
         
         # Package statistics
-        stats = {
+        return {
             "num_layers": num_layers,
             "total_path_length_mm": total_path_length,
             "total_path_segments": total_path_segments,
@@ -397,4 +397,3 @@ class Slicer:
             "estimated_filament_volume_mm3": filament_volume_mm3,
         }
         
-        return stats

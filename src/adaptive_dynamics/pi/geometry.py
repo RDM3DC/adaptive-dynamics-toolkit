@@ -18,7 +18,7 @@ class AdaptivePi:
     In the flat limit (zero curvature), πₐ → π exactly.
     """
     
-    def __init__(self, curvature_fn: Callable[[float, float], float] | None = None):
+    def __init__(self, curvature_fn: Callable[[float, float], float] | None = None) -> None:
         """
         Initialize an adaptive π calculator with a curvature function.
         

@@ -5,13 +5,13 @@ import numpy as np
 from adaptive_dynamics.pi.geometry import AdaptivePi
 
 
-def test_flat_limit():
+def test_flat_limit() -> None:
     """Test that in flat space, πₐ equals π exactly."""
     pi = AdaptivePi()
     assert np.allclose(pi.pi_a(0, 0), np.pi, rtol=1e-12)
 
 
-def test_circumference_recovers_flat():
+def test_circumference_recovers_flat() -> None:
     """Test that circle circumference in flat space is 2πr."""
     pi = AdaptivePi(curvature_fn=lambda x, y: 0.0)
     r = 1.0
@@ -19,7 +19,7 @@ def test_circumference_recovers_flat():
     assert np.allclose(pi.circle_circumference(r), 2 * np.pi * r, rtol=1e-12)
 
 
-def test_positive_curvature():
+def test_positive_curvature() -> None:
     """Test that positive curvature increases πₐ value."""
     flat_pi = AdaptivePi(curvature_fn=lambda x, y: 0.0)
     curved_pi = AdaptivePi(curvature_fn=lambda x, y: 1e-3)
@@ -28,7 +28,7 @@ def test_positive_curvature():
     assert curved_pi.pi_a(0, 0) > flat_pi.pi_a(0, 0)
 
 
-def test_negative_curvature():
+def test_negative_curvature() -> None:
     """Test that negative curvature decreases πₐ value."""
     flat_pi = AdaptivePi(curvature_fn=lambda x, y: 0.0)
     curved_pi = AdaptivePi(curvature_fn=lambda x, y: -1e-3)
@@ -37,7 +37,7 @@ def test_negative_curvature():
     assert curved_pi.pi_a(0, 0) < flat_pi.pi_a(0, 0)
 
 
-def test_circle_area():
+def test_circle_area() -> None:
     """Test that circle area is πₐr² in curved space."""
     pi = AdaptivePi(curvature_fn=lambda x, y: 2e-3)
     r = 1.0
@@ -48,7 +48,7 @@ def test_circle_area():
     assert np.allclose(pi.circle_area(r), expected_area, rtol=1e-12)
 
 
-def test_linear_distance():
+def test_linear_distance() -> None:
     """Test that linear distance recovers Euclidean in flat space."""
     pi = AdaptivePi()
     x1, y1 = 0.0, 0.0
