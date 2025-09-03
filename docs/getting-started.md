@@ -18,7 +18,7 @@ For development or to include optional dependencies:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/adaptive-dynamics-toolkit.git
+git clone https://github.com/RDM3DC/adaptive-dynamics-toolkit.git
 cd adaptive-dynamics-toolkit
 
 # Install with development dependencies
@@ -123,4 +123,4 @@ final_positions = sim.get_positions()
 
 - Browse the [API documentation](./api/pi.md) for detailed references
 - Try the [tutorials](./tutorials/curved_circles.md) for guided examples
-- Contribute to the project on [GitHub](https://github.com/yourusername/adaptive-dynamics-toolkit)
+- Contribute to the project on [GitHub](https://github.com/RDM3DC/adaptive-dynamics-toolkit)

@@ -74,9 +74,9 @@ ADT is currently in beta release (version 0.1.0). APIs may change before the 1.0
 
 ## Contributing
 
-We welcome contributions! See the [GitHub repository](https://github.com/yourusername/adaptive-dynamics-toolkit) for details on how to contribute.
+We welcome contributions! See the [GitHub repository](https://github.com/RDM3DC/adaptive-dynamics-toolkit) for details on how to contribute.
 
 ## License
 
-- Community Edition: [MIT License](https://github.com/yourusername/adaptive-dynamics-toolkit/blob/main/LICENSE)
+- Community Edition: [MIT License](https://github.com/RDM3DC/adaptive-dynamics-toolkit/blob/main/LICENSE)
 - Pro Features: Commercial license
