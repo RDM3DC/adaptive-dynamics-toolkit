@@ -83,8 +83,8 @@ mkdocs serve
 
 ## Community
 
-- Join our [Discord server](https://discord.gg/YOUR_INVITE_CODE) for discussions
 - Subscribe to our newsletter for updates
+- Follow the project on [GitHub](https://github.com/RDM3DC/adaptive-dynamics-toolkit) for updates
 
 ## License
 

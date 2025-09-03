@@ -18,7 +18,7 @@ The Pro version includes advanced features such as:
 
 ## Obtaining Access
 
-To gain access to these features, contact us at licensing@example.com to inquire about commercial licensing options.
+To gain access to these features, contact us at licensing@rdm3dc.dev to inquire about commercial licensing options.
 
 ## Integration
 
@@ -38,4 +38,4 @@ Pro features use a license validation system that checks for a valid license key
 
 ## Support
 
-Commercial licensees receive priority support through our dedicated support portal. Please contact support@example.com with any technical issues related to Pro features.
+Commercial licensees receive priority support through our dedicated support portal. Please contact support@rdm3dc.dev with any technical issues related to Pro features.

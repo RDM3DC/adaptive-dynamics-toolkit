@@ -1,7 +1,7 @@
 site_name: Adaptive Dynamics Toolkit
 site_description: Documentation for the Adaptive Dynamics Toolkit
 site_author: Ryan McKenna
-repo_url: https://github.com/yourusername/adaptive-dynamics-toolkit
+repo_url: https://github.com/RDM3DC/adaptive-dynamics-toolkit
 repo_name: adaptive-dynamics-toolkit
 
 theme:
@@ -67,8 +67,4 @@ extra_javascript:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/your-server
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/yourusername
+      link: https://github.com/RDM3DC

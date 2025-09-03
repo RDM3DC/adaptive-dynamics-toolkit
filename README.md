@@ -109,7 +109,7 @@ ADT Pro extends the toolkit with advanced features for enterprise and research:
 - Enterprise-grade dashboards
 - Specialized slicer algorithms
 
-Contact us at [contact@example.com](mailto:contact@example.com) for licensing information.
+Contact us at [contact@rdm3dc.dev](mailto:contact@rdm3dc.dev) for licensing information.
 
 ## Contributing
 
@@ -122,6 +122,6 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## Support & Services
 
-- [Integration & Research Consulting](https://yourusername.github.io/adaptive-dynamics-toolkit/services)
-- [Training & Workshops](https://yourusername.github.io/adaptive-dynamics-toolkit/training)
-- [GitHub Sponsors](https://github.com/sponsors/yourusername)
+- [Integration & Research Consulting](https://rdm3dc.github.io/adaptive-dynamics-toolkit/services)
+- [Training & Workshops](https://rdm3dc.github.io/adaptive-dynamics-toolkit/training)
+- [GitHub Sponsors](https://github.com/sponsors/RDM3DC)
