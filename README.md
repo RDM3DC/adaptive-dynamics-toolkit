@@ -109,7 +109,7 @@ ADT Pro extends the toolkit with advanced features for enterprise and research:
 - Enterprise-grade dashboards
 - Specialized slicer algorithms
 
-Contact us at [contact@rdm3dc.dev](mailto:contact@rdm3dc.dev) for licensing information.
+Contact us at [contact@rdm3dc.dev](mailto:RDM3DC@outlook.com) for licensing information.
 
 ## Contributing
 
