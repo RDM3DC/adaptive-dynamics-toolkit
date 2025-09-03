@@ -77,7 +77,9 @@ def gauss_bonnet_integral(
     
     # Default to Euclidean metric if not provided
     if metric_tensor is None:
-        metric_tensor = lambda x, y: np.eye(2)
+        def _euclidean_metric(x: float, y: float) -> np.ndarray:  # noqa: D401 (simple)
+            return np.eye(2)
+        metric_tensor = _euclidean_metric
     
     # Compute geodesic curvature along the curve
     kg = compute_geodesic_curvature(curve, metric_tensor)
@@ -89,8 +91,8 @@ def gauss_bonnet_integral(
     
     # Estimate average Gaussian curvature in the enclosed region
     # For more accuracy, use proper integration of K over the surface
-    x_center = np.mean(x)
-    y_center = np.mean(y)
+    x_center = float(np.mean(x))
+    y_center = float(np.mean(y))
     K_avg = gaussian_curvature(x_center, y_center)
     
     # Compute the total geodesic curvature

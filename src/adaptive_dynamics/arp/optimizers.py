@@ -3,6 +3,7 @@ PyTorch implementation of the ARP optimizer.
 """
 
 from collections.abc import Iterable
+from typing import Callable, Optional
 
 import torch
 from torch.optim.optimizer import Optimizer
@@ -43,7 +44,7 @@ class ARP(Optimizer):
         alpha: float = 0.01,
         mu: float = 0.001,
         weight_decay: float = 0.0
-    ):
+    ) -> None:
         """Initialize the ARP optimizer."""
         defaults = dict(lr=lr, alpha=alpha, mu=mu, weight_decay=weight_decay)
         super().__init__(params, defaults)
@@ -52,7 +53,7 @@ class ARP(Optimizer):
         self.arp_system = ARPSystem(alpha=alpha, mu=mu)
     
     @torch.no_grad()
-    def step(self, closure: callable = None) -> torch.Tensor | None:
+    def step(self, closure: Optional[Callable[[], torch.Tensor]] = None) -> Optional[torch.Tensor]:
         """
         Perform a single optimization step.
         
@@ -95,10 +96,10 @@ class ARP(Optimizer):
                 G = state["G"]
                 
                 # Calculate input current (gradient magnitude)
-                I = torch.abs(grad)
+                gradient_magnitude = torch.abs(grad)
                 
-                # Update conductance: dG/dt = α|I| - μG
-                G = G + alpha * I - mu * G
+                # Update conductance: dG/dt = α|grad| - μG
+                G = G + alpha * gradient_magnitude - mu * G
                 state["G"] = G
                 
                 # Apply update with conductance-modulated learning rate

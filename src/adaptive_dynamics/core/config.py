@@ -12,10 +12,10 @@ class Config:
     _instance = None
     _config: dict[str, Any] = {}
     
-    def __new__(cls):
+    def __new__(cls) -> "Config":
         """Singleton implementation."""
         if cls._instance is None:
-            cls._instance = super(Config, cls).__new__(cls)
+            cls._instance = super().__new__(cls)
             cls._instance._load_defaults()
         return cls._instance
     
