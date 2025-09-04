@@ -1,52 +1,14 @@
-# Examples Index (Generated)
+## Curated Examples
 
-- **[Adaptive π — Curvature Field #1](pi_01_adaptive_π_-_curvature_field_1.ipynb)** — πₐ circles with varying curvature fields
-- **[ARP vs Adam on Rosenbrock #1](rosen_02_arp_vs_adam_on_rosenbrock_1.ipynb)** — Non-convex benchmark comparison
-- **[ARP Two-Moons Classifier #1](moons_03_arp_two-moons_classifier_1.ipynb)** — Simple ARP training on synthetic data
-- **[ARP on MNIST (Tiny) #1](mnist_04_arp_on_mnist_(tiny)_1.ipynb)** — MNIST quickstart with ARP optimizer
-- **[Adaptive Gravity Rotation Curve #1](grav_05_adaptive_gravity_rotation_curve_1.ipynb)** — Astro-flavored toy model
-- **[Adaptive Beam Trajectory #1](beam_06_adaptive_beam_trajectory_1.ipynb)** — Beam steering demo
-- **[ATC Text Compression #1](atc_07_atc_text_compression_1.ipynb)** — Toy text codec demo
-- **[CMC Curve Compression #1](cmc_08_cmc_curve_compression_1.ipynb)** — Toy curve codec demo
-- **[TSP Toolpath Variant #1](tsp_09_tsp_toolpath_variant_1.ipynb)** — TSP demo with random point sets
-- **[ARP vs Adam — Synthetic Quadratic #1](bench_10_arp_vs_adam_-_synthetic_quadratic_1.ipynb)** — Synthetic optimizer benchmark
-- **[Adaptive π — Curvature Field #2](pi_11_adaptive_π_-_curvature_field_2.ipynb)** — πₐ circles with varying curvature fields
-- **[ARP vs Adam on Rosenbrock #2](rosen_12_arp_vs_adam_on_rosenbrock_2.ipynb)** — Non-convex benchmark comparison
-- **[ARP Two-Moons Classifier #2](moons_13_arp_two-moons_classifier_2.ipynb)** — Simple ARP training on synthetic data
-- **[ARP on MNIST (Tiny) #2](mnist_14_arp_on_mnist_(tiny)_2.ipynb)** — MNIST quickstart with ARP optimizer
-- **[Adaptive Gravity Rotation Curve #2](grav_15_adaptive_gravity_rotation_curve_2.ipynb)** — Astro-flavored toy model
-- **[Adaptive Beam Trajectory #2](beam_16_adaptive_beam_trajectory_2.ipynb)** — Beam steering demo
-- **[ATC Text Compression #2](atc_17_atc_text_compression_2.ipynb)** — Toy text codec demo
-- **[CMC Curve Compression #2](cmc_18_cmc_curve_compression_2.ipynb)** — Toy curve codec demo
-- **[TSP Toolpath Variant #2](tsp_19_tsp_toolpath_variant_2.ipynb)** — TSP demo with random point sets
-- **[ARP vs Adam — Synthetic Quadratic #2](bench_20_arp_vs_adam_-_synthetic_quadratic_2.ipynb)** — Synthetic optimizer benchmark
-- **[Adaptive π — Curvature Field #3](pi_21_adaptive_π_-_curvature_field_3.ipynb)** — πₐ circles with varying curvature fields
-- **[ARP vs Adam on Rosenbrock #3](rosen_22_arp_vs_adam_on_rosenbrock_3.ipynb)** — Non-convex benchmark comparison
-- **[ARP Two-Moons Classifier #3](moons_23_arp_two-moons_classifier_3.ipynb)** — Simple ARP training on synthetic data
-- **[ARP on MNIST (Tiny) #3](mnist_24_arp_on_mnist_(tiny)_3.ipynb)** — MNIST quickstart with ARP optimizer
-- **[Adaptive Gravity Rotation Curve #3](grav_25_adaptive_gravity_rotation_curve_3.ipynb)** — Astro-flavored toy model
-- **[Adaptive Beam Trajectory #3](beam_26_adaptive_beam_trajectory_3.ipynb)** — Beam steering demo
-- **[ATC Text Compression #3](atc_27_atc_text_compression_3.ipynb)** — Toy text codec demo
-- **[CMC Curve Compression #3](cmc_28_cmc_curve_compression_3.ipynb)** — Toy curve codec demo
-- **[TSP Toolpath Variant #3](tsp_29_tsp_toolpath_variant_3.ipynb)** — TSP demo with random point sets
-- **[ARP vs Adam — Synthetic Quadratic #3](bench_30_arp_vs_adam_-_synthetic_quadratic_3.ipynb)** — Synthetic optimizer benchmark
-- **[Adaptive π — Curvature Field #4](pi_31_adaptive_π_-_curvature_field_4.ipynb)** — πₐ circles with varying curvature fields
-- **[ARP vs Adam on Rosenbrock #4](rosen_32_arp_vs_adam_on_rosenbrock_4.ipynb)** — Non-convex benchmark comparison
-- **[ARP Two-Moons Classifier #4](moons_33_arp_two-moons_classifier_4.ipynb)** — Simple ARP training on synthetic data
-- **[ARP on MNIST (Tiny) #4](mnist_34_arp_on_mnist_(tiny)_4.ipynb)** — MNIST quickstart with ARP optimizer
-- **[Adaptive Gravity Rotation Curve #4](grav_35_adaptive_gravity_rotation_curve_4.ipynb)** — Astro-flavored toy model
-- **[Adaptive Beam Trajectory #4](beam_36_adaptive_beam_trajectory_4.ipynb)** — Beam steering demo
-- **[ATC Text Compression #4](atc_37_atc_text_compression_4.ipynb)** — Toy text codec demo
-- **[CMC Curve Compression #4](cmc_38_cmc_curve_compression_4.ipynb)** — Toy curve codec demo
-- **[TSP Toolpath Variant #4](tsp_39_tsp_toolpath_variant_4.ipynb)** — TSP demo with random point sets
-- **[ARP vs Adam — Synthetic Quadratic #4](bench_40_arp_vs_adam_-_synthetic_quadratic_4.ipynb)** — Synthetic optimizer benchmark
-- **[Adaptive π — Curvature Field #5](pi_41_adaptive_π_-_curvature_field_5.ipynb)** — πₐ circles with varying curvature fields
-- **[ARP vs Adam on Rosenbrock #5](rosen_42_arp_vs_adam_on_rosenbrock_5.ipynb)** — Non-convex benchmark comparison
-- **[ARP Two-Moons Classifier #5](moons_43_arp_two-moons_classifier_5.ipynb)** — Simple ARP training on synthetic data
-- **[ARP on MNIST (Tiny) #5](mnist_44_arp_on_mnist_(tiny)_5.ipynb)** — MNIST quickstart with ARP optimizer
-- **[Adaptive Gravity Rotation Curve #5](grav_45_adaptive_gravity_rotation_curve_5.ipynb)** — Astro-flavored toy model
-- **[Adaptive Beam Trajectory #5](beam_46_adaptive_beam_trajectory_5.ipynb)** — Beam steering demo
-- **[ATC Text Compression #5](atc_47_atc_text_compression_5.ipynb)** — Toy text codec demo
-- **[CMC Curve Compression #5](cmc_48_cmc_curve_compression_5.ipynb)** — Toy curve codec demo
-- **[TSP Toolpath Variant #5](tsp_49_tsp_toolpath_variant_5.ipynb)** — TSP demo with random point sets
-- **[ARP vs Adam — Synthetic Quadratic #5](bench_50_arp_vs_adam_-_synthetic_quadratic_5.ipynb)** — Synthetic optimizer benchmark
+This directory now contains only a small set of maintained notebooks. Bulk auto-generated parameter sweeps were removed to keep the repository focused and lightweight.
+
+Curated notebooks:
+
+- `arp_vs_adam_rosenbrock.ipynb` — Optimizer comparison on Rosenbrock
+- `arp_two_moons.ipynb` — ARP classifier on two-moons dataset
+- `tsp_slicer_demo.ipynb` — Simple TSP / path slicing demo
+
+Exploratory / heavier notebooks (may change):
+- `arp_mnist.ipynb`, `arp_optimizer_mnist.ipynb`, `compress_text_atc.ipynb`, `compress_curve_cmc.ipynb`, `sim_adaptive_gravity_rotation_curve.ipynb`, `sim_beams_trajectory.ipynb`, `output_model.gcode`
+
+Former bulk generation scripts were removed to keep the repo lean. If large batches of parameterized examples are needed in the future, consider creating a separate, non-versioned scratch script or a gist rather than committing outputs.
